@@ -1,57 +1,31 @@
-# SMTP\_Validate\_Email
+# SMTP Validate Email
 
-Perform email address validation/verification via SMTP.
+Legacy PHP utility for validating email addresses through SMTP.
 
-The class retrieves MX records for the email domain and then connects to the
-domain's SMTP server to try figuring out if the address really exists.
+## What it demonstrates
 
-### Some features (see the source for more)
+This project is an earlier example of backend development involving:
 
-* Not really sending a message, gracefully resetting the session when done
-* Command-specific communication timeouts implemented per relevant RFCs
-* Catch-all account detection
-* Batch mode processing supported
-* MX query support on Windows without requiring any PEAR packages
-* Logging and debugging support
+- SMTP communication
+- MX record discovery
+- Email address verification
+- Catch-all detection
+- Batch processing
+- Connection timeouts
+- Logging and debugging
 
-### Basic example
-```php
-<?php
+## Status
 
-require('smtp-validate-email.php');
+**Legacy / maintenance only**
 
-$from = 'a-happy-camper@campspot.net'; // for SMTP FROM:<> command
-$email = 'someone@somewhere.net';
+This repository is retained as part of my development history. It is not a current flagship project.
 
-$validator = new SMTP_Validate_Email($email, $from);
-$smtp_results = $validator->validate();
+My current focus is AI engineering, LLM applications, AI automation, Python, full-stack systems, and AI-powered products.
 
-var_dump($smtp_results);
-```
+## Important note
 
-### Array usage
-The class supports passing an array of addresses in the constructor or to the
-`validate()` method. Checking multiple addresses on the same server uses
-a single connection.
-```php
-<?php
+This repository is based on an earlier SMTP validation implementation. It should be evaluated as historical code rather than as an example of my current preferred architecture.
 
-require('smtp-validate-email.php');
+## License
 
-$from = 'a-happy-camper@campspot.net'; // for SMTP FROM:<> command
-$emails = array(
-    'someone@somewhere.net',
-    'some-other@somewhere-else.net',
-    'someone@example.com',
-    'someone-else@example.com'
-);
-
-$validator = new SMTP_Validate_Email($emails, $from);
-$smtp_results = $validator->validate();
-
-// or passing to the validate() method
-// $validator = new SMTP_Validate_Email();
-// $smtp_results = $validator->validate($emails, $from);
-
-var_dump($smtp_results);
-```
+See the repository's existing license and source history for licensing information.
